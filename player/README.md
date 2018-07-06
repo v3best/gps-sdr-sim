@@ -57,3 +57,22 @@ $ sudo make install
 ```
 $ make plutoplayer
 ```
+
+### YunSDR
+
+#### Build and insatall libyunsdr
+
+```
+$ git clone https://github.com/v3best/libyunsdr
+$ cd libyunsdr
+$ mkdir build
+$ cd build
+$ cmake ../
+$ make && sudo make install && sudo ldconfig
+```
+
+#### Build yunsdrplayer
+
+```
+$ make yunsdrplayer
+```

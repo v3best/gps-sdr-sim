@@ -151,6 +151,26 @@ Set RF bandwidth:
 ```
 Default 3.0MHz. Applicable range 1.0MHz to 5.0MHz.
 
+#### V3 YunSDR:
+
+The YunSDR device is expected to have its network interface up and running and is accessible like PlutoSDR.
+
+Default settings:
+```
+> yunsdrplayer -t gpssim.bin
+```
+Set TX attenuation:
+```
+> yunsdrplayer -t gpssim.bin -a -30.0
+```
+Default -20.0dB. Applicable range 0.0dB to -89.0dB in 0.25dB steps.
+
+Set RF bandwidth:
+```
+> yunsdrplayer -t gpssim.bin -b 3.0
+```
+Default 3.0MHz. Applicable range 1.0MHz to 5.0MHz.
+
 ### License
 
 Copyright &copy; 2015-2018 Takuji Ebinuma  
