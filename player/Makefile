@@ -5,9 +5,10 @@ LIBS = -lm
 CFLAGS += $(shell pkg-config --cflags libbladeRF)
 CFLAGS += $(shell pkg-config --cflags libhackrf)
 CFLAGS += $(shell pkg-config --cflags libiio libad9361)
+CFLAGS += $(shell pkg-config --cflags libyunsdr)
 
-.PHONY: all bladeplayer hackplayer limeplayer plutoplayer clean
-all: bladeplayer hackplayer limeplayer plutoplayer
+.PHONY: all bladeplayer hackplayer limeplayer plutoplayer yunsdrplayer clean
+all: bladeplayer hackplayer limeplayer plutoplayer yunsdrplayer
 	
 %.o: %.c *.h
 	$(CC) $(CPPFLAGS) $(CFLAGS) -c $< -o $@
@@ -24,5 +25,8 @@ limeplayer: limeplayer.c
 plutoplayer: plutoplayer.o $(COMPAT)
 	$(CC) -g -o $@ $^ $(LDFLAGS) $(LIBS) $(shell pkg-config --libs libiio libad9361)
 
+yunsdrplayer: yunsdrplayer.o $(COMPAT)
+	$(CC) -g -o $@ $^ $(LDFLAGS)  $(shell pkg-config --libs libyunsdr) $(LIBS)
+
 clean:
-	rm -f *.o  bladeplayer hackplayer limeplayer plutoplayer
+	rm -f *.o  bladeplayer hackplayer limeplayer plutoplayer yunsdrplayer
